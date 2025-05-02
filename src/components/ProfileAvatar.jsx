@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 
 const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
   // Colores de avatar basados en el tipo de perfil
   const getAvatarColor = (type) => {
     switch (type) {
-      case "adult":
-        return "bg-red-600"
-      case "teen":
-        return "bg-blue-600"
-      case "child":
-        return "bg-green-600"
+      case 'adult':
+        return 'bg-red-600'
+      case 'teen':
+        return 'bg-blue-600'
+      case 'child':
+        return 'bg-green-600'
       default:
-        return "bg-gray-600"
+        return 'bg-gray-600'
     }
   }
 
@@ -19,9 +19,15 @@ const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
   const avatarContent = (
     <>
       {profile.avatar ? (
-        <img src={profile.avatar || "/placeholder.svg"} alt={profile.name} className="w-full h-full object-cover" />
+        <img
+          src={profile.avatar || '/placeholder.svg'}
+          alt={profile.name}
+          className="w-full h-full object-cover"
+        />
       ) : (
-        <span className="text-4xl font-bold text-white">{profile.name.charAt(0).toUpperCase()}</span>
+        <span className="text-4xl font-bold text-white">
+          {profile.name.charAt(0).toUpperCase()}
+        </span>
       )}
     </>
   )
@@ -32,12 +38,16 @@ const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
       <div className="flex flex-col items-center">
         <Link
           to={`/edit-profile/${profile._id}`}
-          className={`w-24 h-24 rounded-md flex items-center justify-center ${getAvatarColor(profile.type)} hover:opacity-80 transition-opacity`}
+          className={`w-24 h-24 rounded-md flex items-center justify-center ${getAvatarColor(
+            profile.type
+          )} hover:opacity-80 transition-opacity`}
         >
           {avatarContent}
         </Link>
         {/* <span className="mt-2 text-center">{profile.name}</span> */}
-        <span className="mt-2 text-xs text-gray-400 capitalize">{profile.name}</span>
+        <span className="mt-2 text-xs text-gray-400 capitalize">
+          {profile.name}
+        </span>
       </div>
     )
   }
@@ -47,12 +57,16 @@ const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
     <div className="flex flex-col items-center">
       <button
         onClick={() => onClick(profile)}
-        className={`w-24 h-24 rounded-md flex items-center justify-center ${getAvatarColor(profile.type)} hover:opacity-80 transition-opacity`}
+        className={`w-24 h-24 rounded-md flex items-center justify-center ${getAvatarColor(
+          profile.type
+        )} hover:opacity-80 transition-opacity`}
       >
         {avatarContent}
       </button>
       {/* <span className="mt-2 text-center">{profile.name}</span> */}
-      <span className="mt-2 text-xs text-gray-400 capitalize">{profile.name}</span>
+      <span className="mt-2 text-xs text-gray-400 capitalize">
+        {profile.name}
+      </span>
     </div>
   )
 }

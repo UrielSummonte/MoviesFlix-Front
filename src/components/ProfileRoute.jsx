@@ -1,5 +1,5 @@
-import { Navigate, Outlet } from "react-router-dom"
-import { useProfile } from "../contexts/ProfileContext"
+import { Navigate, Outlet } from 'react-router-dom'
+import { useProfile } from '../contexts/ProfileContext'
 
 const ProfileRoute = () => {
   const { activeProfile, loading } = useProfile()

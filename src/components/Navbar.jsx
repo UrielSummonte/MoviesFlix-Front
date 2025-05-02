@@ -22,7 +22,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-black text-white shadow-md">
+    <nav
+      className={`bg-${isDark ? 'black' : 'white'} text-${
+        isDark ? 'white' : 'black'
+      } shadow-md`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -93,7 +97,6 @@ const Navbar = () => {
                 >
                   <span className="sr-only">Abrir menú de usuario</span>
                   <div className="h-8 w-8 rounded-full bg-red-600 flex items-center justify-center">
-                    {/* {activeProfile?.name.charAt(0).toUpperCase() || user?.name.charAt(0).toUpperCase()} */}
                     <img
                       src={activeProfile?.avatar || 'ruta/por/defecto.png'}
                       alt="Avatar del perfil"
@@ -104,18 +107,38 @@ const Navbar = () => {
               </div>
 
               {isMenuOpen && (
-                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-800 ring-1 ring-black ring-opacity-5 z-50">
-                  <div className="px-4 py-2 text-xs text-gray-400">
+                <div
+                  className={`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-${
+                    isDark ? 'gray-800' : 'white'
+                  } ring-1 ring-black ring-opacity-5 z-50`}
+                >
+                  <div
+                    className={`px-4 py-2 text-xs text-${
+                      isDark ? 'gray-400' : 'gray-600'
+                    }`}
+                  >
                     Conectado como{' '}
-                    <span className="font-medium text-white">
+                    <span
+                      className={`font-medium text-${
+                        isDark ? 'white' : 'black'
+                      }`}
+                    >
                       {user?.email}
                     </span>
                   </div>
 
                   {activeProfile && (
-                    <div className="px-4 py-2 text-xs text-gray-400">
+                    <div
+                      className={`px-4 py-2 text-xs text-${
+                        isDark ? 'gray-400' : 'gray-600'
+                      }`}
+                    >
                       Perfil:{' '}
-                      <span className="font-medium text-white">
+                      <span
+                        className={`font-medium text-${
+                          isDark ? 'white' : 'black'
+                        }`}
+                      >
                         {activeProfile.name}
                       </span>
                     </div>
@@ -125,14 +148,18 @@ const Navbar = () => {
 
                   <button
                     onClick={handleSwitchProfile}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+                    className={`block w-full text-left px-4 py-2 text-sm text-${
+                      isDark ? 'gray-300' : 'gray-600'
+                    } hover:bg-gray-700`}
                   >
                     Cambiar Perfil
                   </button>
 
                   <Link
                     to="/profile-management"
-                    className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+                    className={`block px-4 py-2 text-sm text-${
+                      isDark ? 'gray-300' : 'gray-600'
+                    } hover:bg-gray-700`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Gestionar Perfiles
@@ -142,7 +169,9 @@ const Navbar = () => {
 
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+                    className={`block w-full text-left px-4 py-2 text-sm text-${
+                      isDark ? 'gray-300' : 'gray-600'
+                    } hover:bg-gray-700`}
                   >
                     Cerrar Sesión
                   </button>

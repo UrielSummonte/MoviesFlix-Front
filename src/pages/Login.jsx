@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { useAuth } from "../contexts/AuthContext";
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { useAuth } from '../contexts/AuthContext'
 
 // Esquema de validación
 const loginSchema = yup
   .object({
     email: yup
       .string()
-      .email("Dirección de email inválida")
-      .required("El email es obligatorio"),
-    password: yup.string().required("La contraseña es obligatoria"),
+      .email('Dirección de email inválida')
+      .required('El email es obligatorio'),
+    password: yup.string().required('La contraseña es obligatoria'),
   })
-  .required();
+  .required()
 
 const Login = () => {
-  const { login } = useAuth();
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const { login } = useAuth()
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
 
   const {
     register,
@@ -27,20 +27,20 @@ const Login = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(loginSchema),
-  });
+  })
 
   const onSubmit = async (data) => {
-    setLoading(true);
+    setLoading(true)
 
     try {
-      const success = await login(data);
+      const success = await login(data)
       if (success) {
-        navigate("/profiles");
+        navigate('/profiles')
       }
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black bg-opacity-90 px-4">
@@ -64,7 +64,7 @@ const Login = () => {
               id="email"
               type="email"
               autoComplete="email"
-              {...register("email")}
+              {...register('email')}
               className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
             />
             {errors.email && (
@@ -85,7 +85,7 @@ const Login = () => {
               id="password"
               type="password"
               autoComplete="current-password"
-              {...register("password")}
+              {...register('password')}
               className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-red-500"
             />
             {errors.password && (
@@ -104,7 +104,7 @@ const Login = () => {
               {loading ? (
                 <div className="w-6 h-6 border-2 border-t-transparent border-white rounded-full animate-spin"></div>
               ) : (
-                "Iniciar Sesión"
+                'Iniciar Sesión'
               )}
             </button>
           </div>
@@ -112,7 +112,7 @@ const Login = () => {
 
         <div className="text-center mt-4 space-y-2">
           <p className="text-gray-400">
-            ¿No tienes una cuenta?{" "}
+            ¿No tienes una cuenta?{' '}
             <Link to="/register" className="text-red-600 hover:text-red-500">
               Regístrate
             </Link>
@@ -128,7 +128,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

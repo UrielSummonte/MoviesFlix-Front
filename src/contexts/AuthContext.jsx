@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect } from "react"
-import { toast } from "react-toastify"
-import api from "../services/api"
+import { createContext, useContext, useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
+import api from '../services/api'
 
 const AuthContext = createContext()
 
@@ -13,17 +13,17 @@ export const AuthProvider = ({ children }) => {
   // Verificar si el usuario ya está logueado al montar
   useEffect(() => {
     const checkAuth = async () => {
-      const token = localStorage.getItem("token")
+      const token = localStorage.getItem('token')
 
       if (token) {
         try {
-          api.defaults.headers.common["Authorization"] = `Bearer ${token}`
-          const response = await api.get("/auth/me")
+          api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+          const response = await api.get('/auth/me')
           setUser(response.data)
         } catch (error) {
-          console.error("Error de autenticación:", error)
-          localStorage.removeItem("token")
-          delete api.defaults.headers.common["Authorization"]
+          console.error('Error de autenticación:', error)
+          localStorage.removeItem('token')
+          delete api.defaults.headers.common['Authorization']
         }
       }
 
@@ -36,17 +36,17 @@ export const AuthProvider = ({ children }) => {
   // Registrar un nuevo usuario
   const register = async (userData) => {
     try {
-      const response = await api.post("/auth/register", userData)
+      const response = await api.post('/auth/register', userData)
       const { token, user } = response.data
 
-      localStorage.setItem("token", token)
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`
+      localStorage.setItem('token', token)
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
       setUser(user)
-      toast.success("¡Registro exitoso!")
+      toast.success('¡Registro exitoso!')
       return true
     } catch (error) {
-      const message = error.response?.data?.message || "Error en el registro"
+      const message = error.response?.data?.message || 'Error en el registro'
       toast.error(message)
       return false
     }
@@ -55,17 +55,17 @@ export const AuthProvider = ({ children }) => {
   // Login de usuario
   const login = async (credentials) => {
     try {
-      const response = await api.post("/auth/login", credentials)
+      const response = await api.post('/auth/login', credentials)
       const { token, user } = response.data
 
-      localStorage.setItem("token", token)
-      api.defaults.headers.common["Authorization"] = `Bearer ${token}`
+      localStorage.setItem('token', token)
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
       setUser(user)
-      toast.success("¡Login exitoso!")
+      toast.success('¡Login exitoso!')
       return true
     } catch (error) {
-      const message = error.response?.data?.message || "Error en el login"
+      const message = error.response?.data?.message || 'Error en el login'
       toast.error(message)
       return false
     }
@@ -73,10 +73,10 @@ export const AuthProvider = ({ children }) => {
 
   // Logout de usuario
   const logout = () => {
-    localStorage.removeItem("token")
-    delete api.defaults.headers.common["Authorization"]
+    localStorage.removeItem('token')
+    delete api.defaults.headers.common['Authorization']
     setUser(null)
-    toast.info("Has cerrado sesión")
+    toast.info('Has cerrado sesión')
   }
 
   const value = {

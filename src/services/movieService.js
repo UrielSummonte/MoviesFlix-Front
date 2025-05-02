@@ -1,35 +1,7 @@
 // src/services/movieService.js
-import { data } from "react-router-dom"
+//import { data } from "react-router-dom"
 import api from "./api"
 
-// Get movies with pagination and filters
-// export const getMovies = async (params = {}) => {
-//   try {
-//     const response = await api.get("/movies", { params })
-    
-//     return response.data.data
-//   } catch (error) {
-//     console.error("Error fetching movies:", error)
-//     throw error
-//   }
-// }
-
-// export const getMovies = async (params = {}) => {
-//   try {
-//     const cleanParams = {}
-//     if (params.genre) cleanParams.genre = params.genre
-//     if (params.profileType) cleanParams.profileType = params.profileType
-//     if (params.search) cleanParams.search = params.search
-//     if (params.page) cleanParams.page = params.page
-//     if (params.limit) cleanParams.limit = params.limit
-
-//     const response = await api.get("/movies", { params: cleanParams })
-//     return response.data// devolver todo para paginación y más control
-//   } catch (error) {
-//     console.error("Error fetching movies:", error)
-//     throw error
-//   }
-// }
 export const getMovies = async (params = {}) => {
   try {
     
@@ -54,18 +26,6 @@ export const getMovies = async (params = {}) => {
     throw error
   }
 }
-
-
-// Get movies by profile
-// export const getMovieByProfile = async (id) => {
-//   try {    
-//     const response = await api.get(`/movies/profile/${id}`) 
-//     return response.data
-//   } catch (error) {
-//     console.error(`Error fetching movie ${id}:`, error)
-//     throw error
-//   }
-// }
 
 // Get a single movie by ID
 export const getMovie = async (id) => {
