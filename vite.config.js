@@ -14,6 +14,7 @@ export default defineConfig({
   },
   preview: {
     port: 10000,  // Puerto que usa Render (importante!)
+    host: '0.0.0.0',
     strictPort: true,
   },
   build: {
