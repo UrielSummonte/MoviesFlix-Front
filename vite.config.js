@@ -8,4 +8,16 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  server: {
+    port: 5173,  // Puerto para desarrollo local
+    strictPort: true,
+  },
+  preview: {
+    port: 10000,  // Puerto que usa Render (importante!)
+    strictPort: true,
+  },
+  build: {
+    outDir: 'dist',  // Asegura la carpeta de build correcta
+    emptyOutDir: true,  // Limpia el directorio en cada build
+  }
 })
