@@ -16,6 +16,10 @@ export default defineConfig({
     port: 10000,  // Puerto que usa Render (importante!)
     host: '0.0.0.0',
     strictPort: true,
+    allowedHosts: [
+      'moviesflix-front.onrender.com',
+      'localhost' // Opcional: para desarrollo local
+    ]
   },
   build: {
     outDir: 'dist',  // Asegura la carpeta de build correcta
