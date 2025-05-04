@@ -20,7 +20,7 @@ const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
     <>
       {profile.avatar ? (
         <img
-          src={profile.avatar || '/placeholder.svg'}
+          src={profile.avatar}
           alt={profile.name}
           className="w-full h-full object-cover"
         />
@@ -44,7 +44,6 @@ const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
         >
           {avatarContent}
         </Link>
-        {/* <span className="mt-2 text-center">{profile.name}</span> */}
         <span className="mt-2 text-xs text-gray-400 capitalize">
           {profile.name}
         </span>
@@ -63,7 +62,6 @@ const ProfileAvatar = ({ profile, onClick, isManagement = false }) => {
       >
         {avatarContent}
       </button>
-      {/* <span className="mt-2 text-center">{profile.name}</span> */}
       <span className="mt-2 text-xs text-gray-400 capitalize">
         {profile.name}
       </span>

@@ -1,10 +1,9 @@
 // src/services/movieService.js
-//import { data } from "react-router-dom"
+
 import api from "./api"
 
 export const getMovies = async (params = {}) => {
-  try {
-    
+  try {    
     const cleanParams = {};
     if (params.genre) cleanParams.genre = params.genre;
     if (params.profileType) cleanParams.profileType = params.profileType;

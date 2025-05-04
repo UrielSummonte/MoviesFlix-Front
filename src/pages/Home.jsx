@@ -34,7 +34,7 @@ const Home = () => {
           const profileType = activeProfile.type
           const profileID = activeProfile._id
 
-          const response = await getMovies({ profileType })
+          const response = await getMovies({ profileType, limit: 50})
           const allMovies = response.data
 
           const data = await getWatchlist(profileID)
@@ -51,7 +51,7 @@ const Home = () => {
           }))
 
           // Establecer películas con la bandera
-          setMovies(moviesWithWatchlistFlag)
+          //setMovies(moviesWithWatchlistFlag)
           setWatchlist({ movies: watchlistMovies })
 
           // Ejemplo: las destacadas son las primeras 5

@@ -94,7 +94,6 @@ const EditProfile = () => {
     )
   }
 
-  // Clases dinámicas para el fondo y el texto según el tema
   const containerClass = isDark
     ? 'bg-gray-900 text-white'
     : 'bg-white text-black'

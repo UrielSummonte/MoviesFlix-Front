@@ -3,10 +3,6 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useTheme } from '../contexts/ThemeContext'
 import * as yup from 'yup'
-import avatar1 from '../assets/avatars/profile1.png'
-import avatar2 from '../assets/avatars/profile2.png'
-import avatar3 from '../assets/avatars/profile3.png'
-import avatar4 from '../assets/avatars/profile4.png'
 
 const profileSchema = yup
   .object({
@@ -24,7 +20,12 @@ const profileSchema = yup
 
 const ProfileForm = ({ profile = null, onSubmit, buttonText = 'Guardar' }) => {
   const { isDark } = useTheme()
-  const avatars = [avatar1, avatar2, avatar3, avatar4]
+  const avatars = [
+    'https://occ-0-7180-1740.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABd3Zi1Uez07EQoQcOjTEVh8fv10hlvtZpnFbZNysscDNsz68W4VFPouIUba_ylyz_Lu1vbfElLBwwrfuG2dulgQKsGC9PS97CQ.png?r=a71',
+    'https://occ-0-7180-1740.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABaKhq8_koRe36dg_ZIzZtoo4GJjIIBVe6WQ9cHsmOWj-yahykBnxcMsnRyqBG_E81wVhsxv-KSIM0xH8qUXTS8YKC8LczDYl8Q.png?r=558',
+    'https://occ-0-7180-1740.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTc7Gr2EDoMfskMmMo7SJ1YtMSie5xkH_nI2CHLu6v6Q1wPZHVipEjYpb62LGDr_ANSDD32ZSV-l9bjDeXcUWpIsjyYdFkIWxA.png?r=bfe',
+    'https://occ-0-7180-1740.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABSNtVALfcTgzCvVMNR6LRU9uPUT0xcFWJ5vZwXeBC_6E6vekKlBLOaOT3HhDRUIgoRrJpuewkTOW7TcNSAIg5esv9z5kK8K8zw.png?r=9ca'
+  ]
 
   const {
     register,

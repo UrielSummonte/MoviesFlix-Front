@@ -6,7 +6,7 @@ import { useTheme } from '../contexts/ThemeContext'
 const MovieSlider = ({ watchlist }) => {
   const sliderRef = useRef(null)
   const movies = watchlist.movies
-  const { theme } = useTheme() // Acceder al tema actual
+  const { theme } = useTheme() 
 
   const scroll = (direction) => {
     if (sliderRef.current) {

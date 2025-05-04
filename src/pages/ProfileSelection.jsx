@@ -48,7 +48,6 @@ const ProfileSelection = () => {
           />
         ))}
 
-        {/* Botón de añadir perfil */}
         {profiles.length < 5 && (
           <div className="flex flex-col items-center">
             <button

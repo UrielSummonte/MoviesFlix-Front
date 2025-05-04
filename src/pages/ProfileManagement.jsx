@@ -16,7 +16,6 @@ const ProfileManagement = () => {
     navigate('/profiles')
   }
 
-  // Definir clases condicionales según el tema
   const isDark = theme === 'dark'
   const bgColor = isDark ? 'bg-black' : 'bg-white'
   const primaryText = isDark ? 'text-white' : 'text-gray-900'
@@ -44,7 +43,6 @@ const ProfileManagement = () => {
           />
         ))}
 
-        {/* Botón de añadir perfil */}
         {profiles.length < 5 && (
           <div className="flex flex-col items-center">
             <button
