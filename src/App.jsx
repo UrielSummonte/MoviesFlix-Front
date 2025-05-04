@@ -16,9 +16,11 @@ import Watchlist from './pages/Watchlist'
 import NotFound from './pages/NotFound'
 import PublicLayout from './components/PublicLayout'
 import ScrollToTop from './components/ScrollTop'
+import PanelAdmin from './pages/PanelAdmin'
+import UserStats from './pages/UserStats'
 
 function App() {
-  const { isAuthenticated, loading: authLoading } = useAuth()
+  const { isAuthenticated, loading: authLoading, user } = useAuth()
   const { activeProfile, loading: profileLoading } = useProfile()
 
   const isLoading = authLoading || profileLoading
@@ -58,17 +60,37 @@ function App() {
             <Route path="/profile-management" element={<ProfileManagement />} />
             <Route path="/create-profile" element={<CreateProfile />} />
             <Route path="/edit-profile/:id" element={<EditProfile />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                isAuthenticated && user?.role === 'admin' ? (
+                  <PanelAdmin />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
+            <Route
+              path="/admin/stats"
+              element={
+                isAuthenticated && user?.role === 'admin' ? (
+                  <UserStats />
+                ) : (
+                  <Navigate to="/login" />
+                )
+              }
+            />
           </Route>
         </Route>
 
         {/* Rutas completamente protegidas: login + perfil activo */}
-        {/* <Route element={<ProtectedRoute />}> */}
-        <Route element={<ProfileRoute />}>
-          <Route element={<Layout />}>
-            <Route path="/watchlist" element={<Watchlist />} />
+        <Route element={<ProtectedRoute />}>
+          <Route element={<ProfileRoute />}>
+            <Route element={<Layout />}>
+              <Route path="/watchlist" element={<Watchlist />} />
+            </Route>
           </Route>
         </Route>
-        {/* </Route> */}
 
         {/* Página no encontrada */}
         <Route path="*" element={<NotFound />} />

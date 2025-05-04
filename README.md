@@ -1,12 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Movies Flix Front
 
-Currently, two official plugins are available:
+*Movies Flix Front* es una aplicaciòn creada REact + Vite + TailwindCSS que usa Axios, Auth Token y otras dependecias que contiene todo lo necesario para interactuar con Movies Flix Back. Este Back contiene plantillas ejs para la administracion del sitio. Es decir que contien un login/register de usuario administrador y ademas permite hacer un CRUD de peliculas y ver una panel de estadisticas de usuario.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Features
+
+- Crear usuario
+- Administrar perfiles de usuario
+- Ver un catálogo de películas segun el perfil de usuario
+- Agregar películas a su lista personal ("Watchlist")
+- Filtrar por género
+- Rutas protegidas
+- Páginas controladas por React Router DOM
+- Se esta desarrollando la conexion desde el front del usuario administrador para poder hacer las mismas tareas que hace desde el back
+
+
+## Tech Stack
+
+**Front-End:** React - Vite - TailwindCSS - Axios - SweetAlert - Yup - React Toastify 
+
+
+
+
+## Links de Referencia
+
+#### Link del sitio
+
+```http
+  https://moviesflix-front.onrender.com/
+```
+
+
+
